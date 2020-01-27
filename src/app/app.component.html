@@ -7,53 +7,51 @@
     <mat-toolbar id="toolbar">Alistair's Notes</mat-toolbar> 
   </div>
   <hr id="hrbar"> 
-      <!-- <i class="material-icons md-48">add</i>  -->
   
-    <section *ngIf=addFormToggle class="new-entry" fxLayout="column"> <!-- fxLayoutAlign="center"> -->
+    <section *ngIf=addFormToggle class="card" fxLayout="column"> 
       <form (ngSubmit)="onSubmit(f)" #f="ngForm" class="form">
-        <mat-card > <!--fxFlex.xs="100%" fxFlex="100%"-->
-            <mat-card-title>Add Information
-            </mat-card-title> <!--fxLayoutAlign="center"-->
+        <mat-card fxFlex.xs="100%" fxFlex="100%">
 
-        <mat-card-content> <!-- fxLayoutAlign="center"> -->
+        <mat-card-content xLayoutAlign="center">
           <mat-form-field class="title">
-            <input matInput placeholder="title" ngModel name="title" >
+            <input matInput placeholder="title" ngModel name="title" required>
           </mat-form-field>
        
           <mat-form-field class="content">
-            <textarea cols="100" rows="15" ngModel name="text" matInput placeholder="text..."></textarea>       
+            <textarea cols="100" rows="15" ngModel name="text" matInput placeholder="text..." required></textarea>       
           </mat-form-field>
         </mat-card-content>
   
-          <!-- <mat-card-actions > fxLayoutAlign="center" -->
-            <mat-card-actions fxLayoutAlign="center">  <!-- *ngIf="!isListLoading" -->
-              <button type="submit" class= "circle_submit" mat-button [disabled]="f.invalid"> SAVE </button>
+          <mat-card-actions fxLayoutAlign="center">
+            <button *ngIf=displaySaveButton type="submit" class= "circle_button" mat-button [disabled]="f.invalid"> SAVE </button>
           </mat-card-actions>   
-          
         </mat-card>
       </form>
     </section>
  
-  <button type="button" class="circle_button"  (click)= "addEntry()" > 
+  <button  *ngIf=displayAddButton type="button" class="circle_button"  (click)= "addEntry()" > 
  +
   </button>
   <br>
 
- 
-
   <p *ngIf="loadedPosts.length < 1"> No Posts </p>
  
 
-  <section *ngFor= "let post of loadedPosts">
-    <mat-card>
+
+
+  <section class="new-entry" >
+    <mat-card class="card" *ngFor= "let post of loadedPosts" >
       <mat-card-title class="title">
         {{ post.title }}
       </mat-card-title>   
       <mat-card-content class="content">
         {{ post.content }}
       </mat-card-content>  
+      <br>
     </mat-card>
   </section>
+
+
   
         <!-- <mat-card-header>
           <div mat-card-avatar class="example-header-image"></div>

@@ -77,9 +77,8 @@
 .card{
     position: 70px;
     z-index: 1; 
-    background-color: whitesmoke;
-    margin: 3%; 
-   
+    background-color: white;
+    margin: 3%;   
 }
 
 .mat-card-title{
@@ -98,13 +97,17 @@ font-family: Roboto Mono;
     width: 90%;
     font-family: Roboto Mono;
     font-size: 20px;
+    
   } 
 
    .content { 
-    margin: 3%; 
+    margin-left: 3%; 
+    margin-right: 3%; 
     width: 90%;
     font-family: Roboto Mono;
-    font-size: 15px;
+    font-size: 15px; 
+  
+  
 
   } 
 

@@ -16,6 +16,8 @@ export class AppComponent implements OnInit {
   title = "Alisitair's Note";
 
   addFormToggle: boolean;
+  displayAddButton: boolean;
+  displaySaveButton: boolean;
   postData: any;
   loadedPosts: Post[] = [];
 
@@ -28,34 +30,33 @@ export class AppComponent implements OnInit {
 
     console.log('Add entry fired');
     this.fetchData();
+    this.displayAddButton = true;
+    this.displaySaveButton = false;
 
   }
 
 
 
   addEntry() {
-
-
     this.addFormToggle = true;
-    console.log(this.addFormToggle);
+    this.displayAddButton = false;
+    this.displaySaveButton = true;
   }
 
   onSubmit(form: NgForm) {
-    console.log(form.value.title);
-    console.log(form.value.text);
-
 
     this.postData = { title: form.value.title, content: form.value.text };
-
     this.nDataService.onCreatePost(this.postData);
     this.nDataService.addToDatabase();
+    this.addFormToggle = false;
+
 }
 
 private fetchData() {
 
   this.http.get
   <{ [key: string]: Post}>
-  ('https://backendtest-53d12.firebaseio.com/posts.json')
+  ('https://robust-seat-226817.firebaseio.com/posts.json')
    .pipe(                                                // pipe enables returned obserable data to be funnels through operators
    map((responseData: { [key: string]: Post}) => {     // map is an agrument of pipe enables
                                                         // data to be rtrn as observable in another strcuture,
