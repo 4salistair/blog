@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms/src/directives/ng_form';
 import { DataService } from './data.service';
 import { HttpClient } from '@angular/common/http';
+import { Post } from './post.model';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +17,7 @@ export class AppComponent implements OnInit {
 
   addFormToggle: boolean;
   postData: any;
+  loadedPosts: Post[] = [];
 
   constructor(
     private http: HttpClient,
@@ -24,7 +27,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
 
     console.log('Add entry fired');
-    this.nDataService.onfetchData();
+    this.fetchData();
 
   }
 
@@ -48,21 +51,30 @@ export class AppComponent implements OnInit {
     this.nDataService.addToDatabase();
 }
 
+private fetchData() {
 
-// export class AppComponent implements OnInit {
-
-  // title = 'my-first-angular-project';
-  // OpenSideNav;
-
-  // constructor( private authService: AuthService) {}
-
-  // ngOnInit() {
-  //   this.authService.innitAuthListener();
-  // }
-
-
-
-// }
+  this.http.get
+  <{ [key: string]: Post}>
+  ('https://backendtest-53d12.firebaseio.com/posts.json')
+   .pipe(                                                // pipe enables returned obserable data to be funnels through operators
+   map((responseData: { [key: string]: Post}) => {     // map is an agrument of pipe enables
+                                                        // data to be rtrn as observable in another strcuture,
+                                                        // here as defining data will be in a Post- type/model
+   const postsArray: Post[] = [];                      // in the case we are returning an Array of Post data model
+                                                        // from the JSON object returned from datastore
+   for (const key in responseData) {                   // looping through response data
+     if (responseData.hasOwnProperty(key)) {           // checking there is a key value on the response data
+     postsArray.push({...responseData[key], id: key}); // pushing each response data row onto array and using id (from datastore)as key.
+      }
+     }
+   return postsArray;                                  // returns the new Array
+   })
+  )
+  .subscribe( posts => {
+    console.log(posts);
+    this.loadedPosts = posts;
+  });
+}
 
 
 

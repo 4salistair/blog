@@ -6,8 +6,9 @@ import { map } from 'rxjs/operators';
 
 @Injectable()
 
-
 export class DataService {
+
+loadedPosts: Post[] = [];
 
     constructor(
         private http: HttpClient
@@ -54,6 +55,7 @@ onCreatePost(postData: Post) {
      )
      .subscribe( posts => {
        console.log(posts);
+       this.loadedPosts = posts;
      });
   }
 
