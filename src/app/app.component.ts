@@ -4,6 +4,8 @@ import { DataService } from './data.service';
 import { HttpClient } from '@angular/common/http';
 import { Post } from './post.model';
 import { map } from 'rxjs/operators';
+import { OrderModule } from 'ngx-order-pipe';
+
 
 @Component({
   selector: 'app-root',
@@ -45,7 +47,7 @@ export class AppComponent implements OnInit {
 
   onSubmit(form: NgForm) {
 
-    this.postData = { title: form.value.title, content: form.value.text };
+    this.postData = { title: form.value.title, content: form.value.text, date: Date() };
     this.nDataService.onCreatePost(this.postData);
     this.nDataService.addToDatabase();
     this.addFormToggle = false;
@@ -74,6 +76,10 @@ private fetchData() {
   .subscribe( posts => {
     console.log(posts);
     this.loadedPosts = posts;
+
+    this.loadedPosts = this.loadedPosts.sort((b, a) => {
+      return <any>new Date(a.date) - <any>new Date(b.date);
+    });
   });
 }
 
