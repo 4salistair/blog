@@ -1,0 +1,125 @@
+@import 'https://fonts.googleapis.com/css?family=Roboto Mono:400,700';
+
+
+/* :root {
+         /* Enable paramaters to bee set*/
+    /* --Alter_Font: 70px;
+    --Alter_NavBar_Font: 30px;
+    --Aliter_Content_Font: 20px; */
+  
+  /* }   */
+
+#header {
+
+    width: 100%; 
+    height: 70px; 
+    background-color: white;
+    top: 0px;
+    position: sticky;
+    z-index: 4; 
+    } 
+
+#toolbar  {
+
+    font-family: Roboto Mono;
+    position: sticky;
+    background-color: white;
+    margin-left: 2%; 
+    top: 2px; 
+    position: sticky;
+    z-index: 4; 
+   
+}
+#hrbar{
+  width: 94%;
+  margin-left: 3%; 
+  position: sticky;
+  top: 70px;
+  z-index: 4; 
+  /* margin-right: 400px; 
+  z-index: 4; 
+  color: greenyellow;   */
+  
+
+}
+
+.circle_button {
+
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 1px solid #000;
+    font-size:10pt;
+    position: fixed;
+    top: 80%;
+    left: 80%;
+    z-index: 2;
+
+
+}
+
+.circle_submit {
+
+  height: 50px;
+  width: 50px;
+  border-radius: 50%; 
+  border: 1px solid #000;
+  font-size:10pt;
+  position: fixed;
+  top: 80%;
+  z-index: 2; 
+
+
+}
+
+
+
+.card{
+    position: 70px;
+    z-index: 1; 
+    background-color: whitesmoke;
+    margin: 3%; 
+   
+}
+
+.mat-card-title{
+font-family: Roboto Mono;
+}
+
+.form {
+    min-width: 100%;
+    max-width: 100%;
+    width: 100%;
+  }
+  
+  .full-width {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .entry-title {
+
+    font-family: Roboto Mono;
+    font-size: 20px;
+  } 
+
+  .new-entry{ 
+    margin: 3%; 
+    font-family: Roboto Mono;
+    font-size: 20px;
+
+  }
+
+ .text-area {
+    margin: 3%; 
+    font-family: Roboto Mono;
+    font-size: 15px;
+ }
+
+ .title-field {
+    margin: 3%; 
+    font-family: Roboto Mono;
+    font-size: 20px;
+    height: 30px;
+ }
+

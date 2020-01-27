@@ -1,1 +1,156 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'https://fonts.googleapis.com/css?family=Roboto Mono:400,700';
+
+@import url('https://fonts.googleapis.com/css?family=ZCOOL+KuaiLe');
+
+@import url('https://fonts.googleapis.com/css?family=B612+Mono');
+
+@import url('https://fonts.googleapis.com/css?family=B612+Mono|Bangers');
+
+@import url('https://fonts.googleapis.com/css?family=B612+Mono|Bangers|IBM+Plex+Mono');
+
+
+:root {        
+  --Alter_Font: 70px;
+  --Alter_NavBar_Font: 25px;
+  --Aliter_Content_Font: 20px;
+} 
+
+nav {
+  background-color: white;
+  display: inline-block;
+  margin: 1%;
+  position: -webkit-sticky;
+  position: sticky;
+  width: 100%;
+  top: 90; 
+  font-size: var(--Alter_NavBar_Font);
+
+} 
+
+@media  (max-width: 768px)  {
+
+  :root {  
+  
+      --Alter_Font: 45px;
+      --Alter_NavBar_Font: 20px; 
+
+      
+    }
+
+  nav {
+      background-color: white;
+      display: inline-block;
+      margin: 1%;
+      position: -webkit-sticky;
+      position: sticky;
+      width: 100%;
+      top: 55; 
+      font-size: var(--Alter_NavBar_Font);
+  
+  } 
+  body {
+    background-color: white;
+  }
+
+  } 
+
+  @media  (max-width: 550px)  {
+
+    :root {  
+    
+        --Alter_Font: 30px;
+        --Alter_NavBar_Font: 15px; 
+  
+        
+      }
+  
+    nav {
+        background-color: white;
+        display: inline-block;
+        margin: 1%;
+        position: -webkit-sticky;
+        position: sticky;
+        width: 100%;
+        top: 38; 
+        font-size: var(--Alter_NavBar_Font);
+    
+    } 
+    body {
+      background-color: white;
+    }
+  
+    } 
+  
+
+
+html,body{
+ 
+  font-family: 'IBM Plex Mono', monospace;
+  
+
+}
+
+
+.flexbox {
+
+display: flex; 
+
+}
+
+
+#headertest {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+
+}
+
+
+#container {
+  margin: 5%;
+
+}
+
+#pageheader {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+
+  margin: 1%;
+  background-color: white;
+
+  font-size: var(--Alter_Font);
+  color: var(--Alter_FontColor); 
+}
+
+
+hr { 
+   display: block;
+   margin: 1%; 
+   
+} 
+
+
+
+
+#content{
+   
+    max-width: 100%;
+    border: 1px solid black;
+    font-size: var(--Aliter_Content_Font);
+    overflow-wrap: break-word;
+    margin: 2%;
+    
+  
+}
+
+#title{
+
+  font-weight: bold;
+  font-size: var(--Aliter_Content_Font);
+  padding-bottom: 2px;
+  padding-left: 2px;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
