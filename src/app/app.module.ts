@@ -10,10 +10,12 @@ import { MatCardModule } from '@angular/material/card';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { DataService } from './data.service';
 import { HttpClientModule } from '@angular/common/http';
+import { CameraComponent } from './camera/camera.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CameraComponent
   ],
   imports: [
     BrowserModule,
