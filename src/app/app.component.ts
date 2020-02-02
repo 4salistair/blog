@@ -4,7 +4,7 @@ import { DataService } from './data.service';
 import { HttpClient } from '@angular/common/http';
 import { Post } from './post.model';
 import { map } from 'rxjs/operators';
-import { OrderModule } from 'ngx-order-pipe';
+
 
 
 @Component({
@@ -30,14 +30,11 @@ export class AppComponent implements OnInit {
   ) { }
   ngOnInit() {
 
-    console.log('Add entry fired');
     this.fetchData();
     this.displayAddButton = true;
     this.displaySaveButton = false;
 
   }
-
-
 
   addEntry() {
     this.addFormToggle = true;
@@ -51,8 +48,13 @@ export class AppComponent implements OnInit {
     this.nDataService.onCreatePost(this.postData);
     this.nDataService.addToDatabase();
     this.addFormToggle = false;
+    this.fetchData();
+    setTimeout( function() { }, 500);
+    this.fetchData();
 
 }
+
+
 
 private fetchData() {
 

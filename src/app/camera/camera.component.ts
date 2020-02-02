@@ -32,7 +32,6 @@ public ngAfterViewInit()  {
 
   if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
       navigator.mediaDevices.getUserMedia({ video: true }).then(stream => {
-         // this.video.nativeElement.src = window.URL.createObjectURL(stream)
         this.video.nativeElement.srcObject = stream;
         console.log('in the navigator function ');
 
@@ -47,29 +46,3 @@ public capture() {
 }
 
 }
-
-// ngOnInit() {
-//   //   this.video = this.videoElement.nativeElement;
-// }
-
-  // start() {
-  //   this.initCamera({ video: true, audio: false });
-  // }
-  //  sound() {
-  //   this.initCamera({ video: true, audio: true });
-  // }
-  // initCamera(config: any) {
-  //   const browser = <any> navigator;
-
-  //   browser.getUserMedia = (browser.getUserMedia ||
-  //     browser.webkitGetUserMedia ||
-  //     browser.mozGetUserMedia ||
-  //     browser.msGetUserMedia);
-
-  //   browser.mediaDevices.getUserMedia(config).then(stream => {
-  //     this.video.src = window.URL.createObjectURL(stream);
-  //     this.video.play();
-  //   });
-//   }
-
-// }

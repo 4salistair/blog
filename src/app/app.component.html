@@ -1,6 +1,9 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
 
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+
 <div id= "container">
 
   <div id= "header">
@@ -21,7 +24,7 @@
             <textarea cols="100" rows="15" ngModel name="text" matInput placeholder="text..." required></textarea>       
           </mat-form-field>
         </mat-card-content>
-  
+        
           <mat-card-actions fxLayoutAlign="center">
             <button *ngIf=displaySaveButton type="submit" class= "circle_button" mat-button [disabled]="f.invalid"> SAVE </button>
           </mat-card-actions>   
@@ -36,7 +39,7 @@
 
   <p *ngIf="loadedPosts.length < 1"> No Posts </p>
  
- <app-camera></app-camera>
+ 
 
 
   <section class="new-entry" >
